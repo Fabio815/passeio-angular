@@ -4,8 +4,14 @@ import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'paginas',
-    component: LayoutComponent
+    path: '',
+    component: LayoutComponent,
+    children: [//estou dizend quais rotas são as filhas
+      {
+        path: 'categorias',
+        loadChildren: () => import('../categorias/categorias.module').then(m => m.CategoriasModule)
+      }
+    ]
   }
 ];
 
